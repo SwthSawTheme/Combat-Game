@@ -1,0 +1,30 @@
+Combat_Game:
+
+#O QUE VAI SER
+-O jogo consistirá em um minigame dinâmico envolvendo um personagem e um inimigo
+-O jogo vai ficar em loop até um dos personagens morrerem, ou seja a vida chegar a 0 ou menor.
+
+#COMO VAI FUNCIONAR
+-As jogadas serão feitas alternadamente
+-Em cada turno o jogador decide atacar ou defender
+-Já o computador vai escolher de forma automatica e aleatoria
+-No dano que o personagem vai dar é levado em consideração o ataque de quem está atacando e a defesa do oponente
+-Além disso haverá habilidades especiais, sendo elas: "Crítico", "Escudo" e "Regeneração"
+
+-Crítico: Multiplica o dano de ataque em 30% das vezes
+-Escudo: Reduz o dano recebido pela metade
+-Regeneração: Recupera 10 de vida no inicio do turno
+
+#PARTE TEÓRICA
+-Cada personagem será feito a partir de uma classe com os seguintes atributos:
+
+-nome
+-vida
+-ataque
+-defesa
+
+-e essa classe terá 2 métodos: atacar e receber_ataque
+-Os decoradores vão servir para encapsular essa funções das classes, a fim de modificar os atributos ( Como fazer isso? )
+-Passando como argumento dentro do wrapper o obj, ou seja, a instancia da classe, pois ai ele vai conseguir mexer diretamente com os atributos daquela classe
+-E como vai funcionar o sistema de probabilidades, pois a cada partida vai ser escolhido uma habilidade
+-Essas habilidades vão ficar dentro de um dicionário, que inclusive vai ter a opção "nada", ou seja não acontece nada, nenhuma habilidade especial é acionada
