@@ -38,8 +38,10 @@ def regeneracao(funcao):
     def wrapper(*args):
         argumentos = list(args)
         argumentos[0].vida += 10
+        if argumentos[0].vida > argumentos[0].vida_original:  # Garantir que a vida não exceda o máximo
+            argumentos[0].vida = argumentos[0].vida_original
         print(funcao(*argumentos))
-        return f"\033[1;32m{argumentos[0].nome} usou regenerou 10 pontos de vida\033[m"
+        return f"\033[1;32m{argumentos[0].nome} regenerou 10 pontos de vida\033[m"
     return wrapper
 
 class ContadorFuncao:
@@ -91,8 +93,9 @@ class Personagem:
         self.vida -= dano #REVER
 
     def exibir_vida(self):
-        coracao_cheio = int((Decimal(self.vida/self.vida_original) * 10).quantize(Decimal("1")))
-        mensagem = f"{" ❤️​" * coracao_cheio} {"​🖤​" * (10 - coracao_cheio)}"
+        coracao_cheio = int((Decimal(self.vida / self.vida_original) * 10).quantize(Decimal("1")))
+        coracao_vazio = 10 - coracao_cheio
+        mensagem = f"{'❤️' * coracao_cheio}{'🖤' * coracao_vazio}"
         return mensagem
 
     def exibir_vida2(self):
